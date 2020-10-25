@@ -5,6 +5,27 @@ import java.util.Scanner;
 
 public class Main {
 
+    public static void main(String[] args) {
+        Locale.setDefault(Locale.ROOT);
+
+        double x = readVar("x");
+        double numberOfMembers = readVar("numberOfMembers");
+        double epsilon = readVar("epsilon");
+
+        double sumOfSequence = calculateSumOfSequence(x, numberOfMembers);
+        printResult("of N terms", sumOfSequence);
+
+        double sumOfSequenceWithEpsilon = calculateSumOfSequenceWithEpsilon(x, numberOfMembers, epsilon);
+        printResult("of N terms of which the absolute value of more than epsilon", sumOfSequenceWithEpsilon);
+
+        double sumOfSequenceWithEpsilonDividedBy10 = calculateSumOfSequenceWithEpsilon(x, numberOfMembers, epsilon / 10);
+        printResult("of N terms of which the absolute value of more than epsilon divided by 10",
+                sumOfSequenceWithEpsilonDividedBy10);
+
+        double sumOfSequenceWithMath = Math.atan(x);
+        printResult("using Math", sumOfSequenceWithMath);
+    }
+
     private static double readVar(String name) {
         Scanner scanner = new Scanner(System.in);
         System.out.printf("Enter %s: ", name);
@@ -50,26 +71,5 @@ public class Main {
             }
         }
         return sum;
-    }
-
-    public static void main(String[] args) {
-        Locale.setDefault(Locale.ROOT);
-
-        double x = readVar("x");
-        double numberOfMembers = readVar("numberOfMembers");
-        double epsilon = readVar("epsilon");
-
-        double sumOfSequence = calculateSumOfSequence(x, numberOfMembers);
-        printResult("of N terms", sumOfSequence);
-
-        double sumOfSequenceWithEpsilon = calculateSumOfSequenceWithEpsilon(x, numberOfMembers, epsilon);
-        printResult("of N terms of which the absolute value of more than epsilon", sumOfSequenceWithEpsilon);
-
-        double sumOfSequenceWithEpsilonDividedBy10 = calculateSumOfSequenceWithEpsilon(x, numberOfMembers, epsilon / 10);
-        printResult("of N terms of which the absolute value of more than epsilon divided by 10",
-                sumOfSequenceWithEpsilonDividedBy10);
-
-        double sumOfSequenceWithMath = Math.atan(x);
-        printResult("using Math", sumOfSequenceWithMath);
     }
 }
